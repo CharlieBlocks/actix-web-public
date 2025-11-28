@@ -16,7 +16,7 @@ pub use actix_server::{Server, ServerHandle};
 pub use actix_service::{
     always_ready, fn_factory, fn_service, forward_ready, Service, ServiceFactory, Transform
 };
-pub use crate::app_service::{ AppEntry };
+pub use crate::app_service::{ AppEntry, AppRoutingFactory };
 
 #[doc(hidden)]
 pub use crate::handler::Handler;
