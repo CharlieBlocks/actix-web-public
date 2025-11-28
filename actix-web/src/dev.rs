@@ -14,8 +14,9 @@ use actix_router::Patterns;
 pub use actix_router::{Path, ResourceDef, ResourcePath, Url};
 pub use actix_server::{Server, ServerHandle};
 pub use actix_service::{
-    always_ready, fn_factory, fn_service, forward_ready, Service, ServiceFactory, Transform,
+    always_ready, fn_factory, fn_service, forward_ready, Service, ServiceFactory, Transform
 };
+pub use crate::app_service::{ AppEntry };
 
 #[doc(hidden)]
 pub use crate::handler::Handler;
