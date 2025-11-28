@@ -55,7 +55,7 @@ impl<T> App<T>
 where
     T: ServiceFactory<ServiceRequest, Config = (), Error = Error, InitError = ()>,
 {
-    fn new_with_endpoint(endpoint: T, service_factory: Rc<RefCell<Option<AppRoutingFactory>>>) -> Self {
+    pub fn new_with_endpoint(endpoint: T, service_factory: Rc<RefCell<Option<AppRoutingFactory>>>) -> Self {
         App {
             endpoint: endpoint,
             data_factories: Vec::new(),
