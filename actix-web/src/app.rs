@@ -48,12 +48,25 @@ impl App<AppEntry> {
             extensions: Extensions::new(),
         }
     }
+
 }
 
 impl<T> App<T>
 where
     T: ServiceFactory<ServiceRequest, Config = (), Error = Error, InitError = ()>,
 {
+    fn new_with_endpoint(endpoint: T, service_factory: Rc<RefCell<Option<AppRoutingFactory>>>) -> Self {
+        App {
+            endpoint: endpoint,
+            data_factories: Vec::new(),
+            services: Vec::new(),
+            default: None,
+            factory_ref: service_factory,
+            external: Vec::new(),
+            extensions: Extensions::new()
+        }
+    }
+
     /// Set application (root level) data.
     ///
     /// Application data stored with `App::app_data()` method is available through the
